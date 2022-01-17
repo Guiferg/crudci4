@@ -15,34 +15,37 @@
 			return false;
 		}
 	</script>
+	<link type="text/css" rel="stylesheet" href="css/materialize.min.css"  media="screen,projection"/>
 </head>
 <body>
-	<h1>Bem vindo à tela de usuários</h1>
-	
-	<p>
-		<?php echo anchor('usuario/create', '>Novo Usuário') ?>
-	</p>
+	<main>
+		<h1>Bem vindo à tela de usuários</h1>
+		
+		<p>
+			<?php echo anchor('usuario/create', '>Novo Usuário') ?>
+		</p>
 
-	<h3>Usuários Cadastrados</h3>
-	<table>
-		<tr>
-			<th>Código</th>
-			<th>Nome</th>
-			<th>Email</th>
-			<th>Ações</th>
-		</tr>
-		<?php foreach($usuarios as $usuario): ?>
+		<h3>Usuários Cadastrados</h3>
+		<table>
 			<tr>
-				<td><?php echo $usuario['id']; ?></td>
-				<td><?php echo $usuario['nome']; ?></td>
-				<td><?php echo $usuario['email']; ?></td>
-				<td>
-					<?php echo anchor("usuario/edit/".$usuario['id'], "Editar"); ?>
-					-
-					<?php echo anchor("usuario/excluir/".$usuario['id'], "Excluir", 'onclick="return confirma()"'); ?>	
-					</td>
+				<th>Código</th>
+				<th>Nome</th>
+				<th>Email</th>
+				<th>Ações</th>
 			</tr>
-		<?php endforeach; ?>
-	</table>
+			<?php foreach($usuarios as $usuario): ?>
+				<tr>
+					<td><?php echo $usuario['id']; ?></td>
+					<td><?php echo $usuario['nome']; ?></td>
+					<td><?php echo $usuario['email']; ?></td>
+					<td>
+						<?php echo anchor("usuario/edit/".$usuario['id'], "Editar"); ?>
+						-
+						<?php echo anchor("usuario/excluir/".$usuario['id'], "Excluir", 'onclick="return confirma()"'); ?>	
+						</td>
+				</tr>
+			<?php endforeach; ?>
+		</table>
+	</main>
 </body>
 </html>
